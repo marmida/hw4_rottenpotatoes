@@ -15,12 +15,20 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-    when /^the edit page for "(.*)"$/
-      # extract the movie title
-      title = /^the edit page for "(.*)"$/.match(page_name)[1]
-      # url to the id
-      '/movies/%s' % Movie.find_by_title(title).id
+    when /^the add new movie page$/
+      new_movie_path
+    when /^the (details|edit) page for "(.*)"$/
+      # extract title and page type
+      action, title = [$1, $2]
+      movie = Movie.find_by_title(title) or raise StandardError, 'Movie not found in database: %s' % title
 
+      case action
+      when 'details'
+        movie_path movie
+      when 'edit'
+        edit_movie_path movie
+      end
+    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

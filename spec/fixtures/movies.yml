@@ -1,0 +1,35 @@
+# spec/fixtures/movies.yml
+time_bandits_movie:
+  id: 1
+  title: Time Bandits
+  rating: PG
+  release_date: 1981-11-06
+  director: Terry Gilliam
+
+holy_grail_movie:
+  id: 2
+  title: Monty Python and the Holy Grail
+  rating: PG
+  release_date: 1975-05-25
+  director: Terry Gilliam
+
+seven_samurai_movie:
+  id: 3
+  title: Seven Samurai
+  rating: PG-13
+  release_date: 1954-04-26
+  director: Akira Kurosawa
+
+stray_dog_movie:
+  id: 4
+  title: Stray Dog
+  rating: R
+  release_date: 1949-10-17
+  director: Akira Kurosawa
+
+feebles_movie:
+  id: 5
+  title: Meet the Feebles
+  rating: R
+  release_date: 1989-12-08
+  director: Peter Jackson
