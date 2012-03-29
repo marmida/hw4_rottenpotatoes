@@ -33,3 +33,14 @@ feebles_movie:
   rating: R
   release_date: 1989-12-08
   director: Peter Jackson
+
+# intentionally leaving out the director on these
+double_indemnity_movie:
+  id: 6
+  title: Double Indemnity
+  release_date: 1944-04-24
+
+sunset_boulevard_movie:
+  id: 7
+  title: Sunset Boulevard
+  release_date: 1950-08-10

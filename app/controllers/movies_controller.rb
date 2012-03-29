@@ -60,7 +60,13 @@ class MoviesController < ApplicationController
 
   def director
     # list movies by the same director as for the given movie
-    @movies = Movie.find(params[:id]).find_by_same_director
+    movie = Movie.find(params[:id])
+    begin
+      @movies = movie.find_by_same_director
+    rescue Movie::NoDirectorError
+      flash[:warning] = "'%s' has no director info" % movie.title
+      redirect_to movies_path and return
+    end
   end
 
 end
