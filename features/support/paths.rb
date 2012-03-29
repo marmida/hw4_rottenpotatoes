@@ -14,10 +14,10 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      '/movies'
     when /^the add new movie page$/
       new_movie_path
-    when /^the (details|edit) page for "(.*)"$/
+    when /^the (details|edit|Similar Movies) page for "(.*)"$/
       # extract title and page type
       action, title = [$1, $2]
       movie = Movie.find_by_title(title) or raise StandardError, 'Movie not found in database: %s' % title
@@ -27,6 +27,8 @@ module NavigationHelpers
         movie_path movie
       when 'edit'
         edit_movie_path movie
+      when 'Similar Movies'
+        '/movies/%d/director' % movie.id
       end
     
     # Add more mappings here.

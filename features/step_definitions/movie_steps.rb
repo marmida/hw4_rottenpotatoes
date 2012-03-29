@@ -6,6 +6,7 @@ Given /the following movies exist/ do |movies_table|
       :title => movie['title'],
       :rating => movie['rating'],
       :release_date => movie['release_date'],
+      :director => movie['director'],
     }).save
   end
 end
