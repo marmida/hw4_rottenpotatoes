@@ -20,3 +20,23 @@ end
 Given /^PENDING/ do
   pending
 end
+
+Then /^(?:|I )should not see ("[^"]+") in the movie list$/ do |search|
+  within('#movies') do
+    step 'I should not see %s' % search
+  end
+end
+
+# imported from hw3
+When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
+  rating_list.scan(/[\w-]+/).each do |rating|
+    step "I %scheck \"ratings[%s]\"" % [uncheck, rating]
+  end
+end
+
+
+# "everything" step
+Then /I should see all of the movies/ do 
+  # there's one extra TR for the header row
+  assert_equal Movie.count + 1, page.all('#movies tr').length
+end
